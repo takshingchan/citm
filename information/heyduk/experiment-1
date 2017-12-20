@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#  experiment-1
+#
+#  This shell script calculates the information content in all
+#  four compositions, using all three information measures.
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results
+for i in ncf-ftd plain-ftd; do
+    rm -f results/$i
+    for ((j = 1; j <= 4; j++)); do
+        ../chan/$i/info opmfiles/$j.opm >> results/$i
+    done
+done
+
+# Use MIDI files for Cilibrasi (2004)
+rm -f results/cilibrasi
+for ((i = 1; i <= 4; i++)); do
+    ../cilibrasi/info midifiles/$i.mid >> results/cilibrasi
+done

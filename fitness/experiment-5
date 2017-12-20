@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#  experiment-5
+#
+#  This shell script calculates the unity in diversity between
+#  each data file and the listener file.
+#
+#  Copyright (C) 2007 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/vitz
+for i in uid1 uid2 uid3; do
+    for ((j = 1; j <= 6; j++)); do
+        rm -f results/vitz/$j-$i
+        for ((k = 1; k <= 64; k++)); do
+            ../information/chan/ncf-ftd/$i opmfiles/vitz/$j-$k.opm opmfiles/chan/listener.opm >> results/vitz/$j-$i
+        done
+    done
+done

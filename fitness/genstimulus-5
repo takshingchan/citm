@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+#  genstimulus-5
+#
+#  Generate the stimulus used by Vitz (1966).
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Creating directories
+echo Creating directories...
+mkdir -p notefiles/vitz nbfiles/vitz opmfiles/vitz
+
+# Creating notefiles
+echo Creating notefiles...
+cd notefiles/vitz
+../../../utilities/vitz | sh
+cd ../..
+
+# Creating nbfiles and opmfiles
+for ((i = 1; i <= 6; i++)); do
+    for ((j = 1; j <= 64; j++)); do
+        echo Processing $i-$j.notes...
+        ../utilities/melisma2003/meter/meter notefiles/vitz/$i-$j.notes > nbfiles/vitz/$i-$j.nb
+        ../utilities/nb2opm nbfiles/vitz/$i-$j.nb > opmfiles/vitz/$i-$j.opm
+    done
+done

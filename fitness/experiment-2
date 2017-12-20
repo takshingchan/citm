@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#  experiment-2
+#
+#  This shell script calculates the unity and diversity between
+#  selected nontonal mutations and the listener file.
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/chan
+for i in uid1 uid2 uid3; do
+    rm -f results/chan/essen-$i
+    for j in opmfiles/chan/mutations/K{2445,3027}; do
+        ../information/chan/ncf-ftd/$i $j/1/0.opm opmfiles/chan/listener.opm >> results/chan/essen-$i
+        for ((k = 1; k <= 22; k++)); do
+            for l in 5 10 15 20; do
+                ../information/chan/ncf-ftd/$i $j/$k/$l.opm opmfiles/chan/listener.opm >> results/chan/essen-$i
+            done
+        done
+    done
+done

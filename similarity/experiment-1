@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#  experiment-1
+#
+#  This shell script calculates the distance between all 26 Bach
+#  motives and the two prototypes in Cambouropoulos (2001).
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/cambouropoulos
+for i in dist1 dist2 dist3; do
+    rm -f results/cambouropoulos/bach-$i
+    for ((j = 1; j <= 26; j++)); do
+        echo `../information/chan/ncf-ftd/$i \
+            opmfiles/cambouropoulos/$j.opm \
+            opmfiles/cambouropoulos/1.opm` \
+            `../information/chan/ncf-ftd/$i \
+            opmfiles/cambouropoulos/$j.opm \
+            opmfiles/cambouropoulos/12.opm` >> results/cambouropoulos/bach-$i
+    done
+done

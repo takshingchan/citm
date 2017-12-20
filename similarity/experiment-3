@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+#  experiment-3
+#
+#  This shell script calculates the distance predictions for my
+#  similarity experiment.
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+stim[0]='A tempo risoluto'
+stim[1]='Allegro agitato'
+stim[2]='Lento sostenuto'
+stim[3]='Meno mosso'
+stim[4]='Moderato cantabile'
+stim[5]='Molto vivace'
+stim[6]='Piu lento'
+stim[7]='Piu mosso'
+stim[8]='Presto'
+stim[9]='Sostenuto'
+stim[10]='Tempo I'
+stim[11]='Tempo giusto'
+stim[12]='Vivace'
+
+# Running the experiment
+mkdir -p results/chan
+rm -f results/chan/chopin-dist1
+for ((i = 0; i <= 12; i++)); do
+    for ((j = 0; j <= 12; j++)); do
+        echo -n `../information/chan/ncf-ftd/dist1 \
+            "opmfiles/chan/${stim[$i]}.opm" \
+            "opmfiles/chan/${stim[$j]}.opm"` >> results/chan/chopin-dist1
+        if [ $j -ne 12 ]; then
+            echo -n ' ' >> results/chan/chopin-dist1
+        fi
+    done
+    echo >> results/chan/chopin-dist1
+done

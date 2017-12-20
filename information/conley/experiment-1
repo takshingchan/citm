@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#  experiment-1
+#
+#  This shell script calculates the information content in all 16
+#  stimulus files, using all three information measures.
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/1
+for i in ncf-ftd plain-ftd; do
+    rm -f results/1/$i
+    for ((j = 1; j <= 16; j++)); do
+        ../chan/$i/info opmfiles/$j.opm >> results/1/$i
+    done
+done
+
+# Use MIDI files for Cilibrasi (2004)
+rm -f results/1/cilibrasi
+for ((i = 1; i <= 16; i++)); do
+    ../cilibrasi/info midifiles/$i.mid >> results/1/cilibrasi
+done

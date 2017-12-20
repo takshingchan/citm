@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#  info
+#
+#  Compression Information
+#
+#  This shell script outputs the compression information of the
+#  MIDI file specified on the command line.
+#
+#  Copyright (C) 2006, 2017 Tak-Shing Chan
+#
+
+if [ $# -ne 1 ]; then
+    echo usage: info file >&2
+    exit 1
+fi
+
+# Output compression information
+`dirname $0`/cilibrasi.rb $1 | bzip2 | wc -c

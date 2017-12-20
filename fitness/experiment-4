@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+#  experiment-4
+#
+#  This shell script calculates the unity and diversity between
+#  Heyduk's compositions and the listener file.
+#
+#  Copyright (C) 2006 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/heyduk
+for i in uid1 uid2 uid3; do
+    rm -f results/heyduk/heyduk-$i
+    for ((j = 1; j <= 4; j++)); do
+        ../information/chan/ncf-ftd/$i ../information/heyduk/opmfiles/$j.opm opmfiles/chan/listener.opm >> results/heyduk/heyduk-$i
+    done
+done

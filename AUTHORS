@@ -1,0 +1,39 @@
+A Cognitive Information Theory of Music (CITM) is authored by:
+
+    - Tak-Shing Chan <takshingchan@gmail.com>
+
+It reuses code and data from the following researchers whom I
+gratefully acknowledge below:
+
+    ftd.{h,c}       The fast T-decomposition algorithm
+                    - Jia Yang <yangj@pku.edu.cn>
+                    - Ulrich Speidel <ulrich@cs.auckland.ac.nz>
+
+    eerola0{1,7}    Experimental data and MIDI files
+    eerola/*.mid    - Tuomas Eerola <tuomas.eerola@durham.ac.uk>
+
+    cilibrasi.rb    MIDI preprocessor
+                    - Rudi Cilibrasi <cilibrar@gmail.com>
+
+References
+
+Chan, T.-S. T. (2008). A cognitive information theory of music: A
+computational memetics approach (Unpublished doctoral
+dissertation). University of London, London, UK.
+
+Cilibrasi, R., Vitanyi, P., & de Wolf, R. (2004). Algorithmic
+clustering of music based on string compression. Computer Music
+Journal, 28(4), 49-67.
+
+Eerola, T., & Bregman, M. (2007). Melodic and contextual
+similarity of folk song phrases. Musicae Scientiae, Discussion
+Forum 4A, 211-233.
+
+Eerola, T., Jarvinen, T., Louhivuori, J., & Toiviainen, P.
+(2001). Statistical features and perceived similarity of folk
+melodies. Music Perception, 18(3), 275-296.
+
+Yang, J., & Speidel, U. (2005, September). A T-decomposition
+algorithm with O(n log n) time and space complexity. Paper
+presented at the International Symposium on Information Theory.
+https://doi.org/10.1109/ISIT.2005.1523285

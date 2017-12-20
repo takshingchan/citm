@@ -1,0 +1,34 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                beginExperiment = id; 
+                beginQuestionnaire = id; 
+                endExperiment = id; 
+                getRating = id; 
+                personalChanged = id; 
+            }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                age = NSPopUpButton; 
+                comments = NSTextView; 
+                done = NSButton; 
+                instructions = NSView; 
+                matrix = NSMatrix; 
+                newExperiment = NSMenuItem; 
+                personal = NSView; 
+                playListView = NSTableView; 
+                progressBar = NSProgressIndicator; 
+                progressText = NSTextField; 
+                questionnaire = NSView; 
+                sex = NSPopUpButton; 
+                window = NSWindow; 
+                years = NSPopUpButton; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

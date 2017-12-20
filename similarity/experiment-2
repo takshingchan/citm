@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+#  experiment-2
+#
+#  This shell script calculates the distance matrices for Eerola
+#  et al. (2001) and Eerola & Bregman (2007).
+#
+#  Copyright (C) 2007 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/eerola
+for i in dist1 dist2 dist3; do
+    for j in eerola01 eerola07; do
+        rm -f results/eerola/$j-$i
+        case $j in
+            eerola01)   stim=({c,g,h,i,y}{1,2,3});;
+            eerola07)   stim=(1{5,6,7,8,9} 20 1{0,1,2,3,4} 5 6 7 8 9 1 2 3 4);;
+        esac
+        n=${#stim[*]};
+        for ((k = 0; k < n; k++)); do
+            for ((l = 0; l < n; l++)); do
+                echo -n `../information/chan/ncf-ftd/$i \
+                    opmfiles/eerola/${stim[$k]}.opm \
+                    opmfiles/eerola/${stim[$l]}.opm` >> results/eerola/$j-$i
+                if [ $l -ne `expr $n - 1` ]; then
+                    echo -n ' ' >> results/eerola/$j-$i
+                fi
+            done
+            echo >> results/eerola/$j-$i
+        done
+    done
+done

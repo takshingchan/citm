@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+#  cinfo
+#
+#  Conditional Compression Information
+#
+#  This shell script outputs the conditional compression
+#  information of the first MIDI file given the second.
+#
+#  Copyright (C) 2006, 2017 Tak-Shing Chan
+#
+
+if [ $# -ne 2 ]; then
+    echo usage: cinfo file1 file2 >&2
+    exit 1
+fi
+
+# Open input files
+SRCDIR=`dirname $0`
+$SRCDIR/cilibrasi.rb $1 > /tmp/X.$$
+$SRCDIR/cilibrasi.rb $2 > /tmp/Y.$$
+
+# Output conditional compression information
+HY=`bzip2 < /tmp/Y.$$ | wc -c`
+HXY=`cat /tmp/{X,Y}.$$ | bzip2 | wc -c`
+echo $HXY - $HY | bc
+rm -f /tmp/{X,Y}.$$

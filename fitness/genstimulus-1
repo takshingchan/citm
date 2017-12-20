@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+#  genstimulus-1
+#
+#  This shell script performs 128 times 3 (white, brown, 1/f)
+#  runs of random music generation.
+#
+#  Copyright (C) 2005 Tak-Shing Chan
+#
+
+# Creating directories
+echo Creating directories...
+for i in white brown 1-f; do
+    mkdir -p notefiles/jeong/$i
+    mkdir -p nbfiles/jeong/$i
+    mkdir -p opmfiles/jeong/$i
+done
+
+# Creating notefiles
+for i in white brown 1-f; do
+    echo Creating notefiles/jeong/$i...
+    cd notefiles/jeong/$i
+    ../../../../utilities/random 128 256 $i $i | sh
+    cd ../../..
+done
+
+# Creating nbfiles and opmfiles
+for i in white brown 1-f; do
+    for ((j = 1; j <= 128; j++)); do
+        echo Processing jeong/$i/$j.notes...
+        ../utilities/melisma2003/meter/meter notefiles/jeong/$i/$j.notes > nbfiles/jeong/$i/$j.nb
+        ../utilities/nb2opm nbfiles/jeong/$i/$j.nb > opmfiles/jeong/$i/$j.opm
+    done
+done

@@ -1,0 +1,69 @@
+1. Problem Statement
+
+Because one subject has ``[a]nswered the trial questions and I
+think the first 2 or 3 of the experiment incorrectly - got the
+scale mixed up'', I shall rectify this by inverting the scales
+for the first n trials (0 <= n <= 10):
+
+        ----------------------------------------
+        n       Before  After   Remarks
+        ----------------------------------------
+        0                       No operation
+        1       (2)     (8)
+        2       (1)     (9)
+        3       (8)     (2)     My initial guess
+        4       (8)     (2)
+        5       (7)     (3)
+        6       (2)     (8)
+        7       (5)     (5)     No changes here
+        8       (4)     (6)
+        9       (3)     (7)
+        10      (9)     (1)
+
+The value of n that maximises Cronbach's alpha will be chosen.
+
+2. Results
+
+        -------------------------------------------
+        n       ICC     F(77, 2233)     p
+        -------------------------------------------
+        0       0.94685 18.815          3.7177e-188
+        1       0.94696 18.855          1.5477e-188
+        2       0.94767 19.110          5.5546e-191
+        3       0.94757 19.072          1.2864e-190
+        4       0.94740 19.011          4.9340e-190
+        5       0.94722 18.945          2.1120e-189
+        6       0.94701 18.870          1.1046e-188
+        7       0.94701 18.870          1.1046e-188
+        8       0.94711 18.907          4.8995e-189
+        9       0.94698 18.862          1.3148e-188
+        10      0.94653 18.701          4.6502e-187
+
+This suggests that n = 2 is the best fit.  Full results are
+saved in chopin.
+
+3. Personal Information
+
+20 Females, 10 Males
+Mean age = 36.333, sd = 10.617
+Mean years = 4.9333, sd = 8.6341
+
+4. Asymmetric Results
+
+        -------------------------------------------
+        n       ICC     F(168, 4872)    p
+        -------------------------------------------
+        0       0.98893 90.347          0
+        1       0.98895 90.533          0
+        2       0.98907 91.513          0
+        3       0.98906 91.446          0
+        4       0.98901 91.022          0
+        5       0.98899 90.811          0
+        6       0.98898 90.736          0
+        7       0.98898 90.736          0
+        8       0.98899 90.791          0
+        9       0.98897 90.701          0
+        10      0.98890 90.119          0
+
+This again suggests that n = 2 is the best fit.  Full results are
+saved in chopina.

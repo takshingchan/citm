@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#  experiment-1
+#
+#  This shell script calculates the unity in diversity between
+#  every pair of data files within the same type.
+#
+#  Copyright (C) 2005 Tak-Shing Chan
+#
+
+# Running the experiment
+mkdir -p results/jeong/1
+for i in white brown 1-f; do
+    rm -f results/jeong/1/$i
+    for ((j = 1; j <= 128; j++)); do
+        for ((k = 1; k <= 128; k++)); do
+            ../information/chan/ncf-ftd/uid1 opmfiles/jeong/$i/$j.opm opmfiles/jeong/$i/$k.opm >> results/jeong/1/$i
+        done
+    done
+done
